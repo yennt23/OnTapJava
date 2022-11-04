@@ -5,6 +5,7 @@
 package com.mycompany.ontap1.repositories.Impl;
 
 import com.mycompany.ontap1.Model.Account;
+import com.mycompany.ontap1.Model.SavingAccount;
 import com.mycompany.ontap1.Utiliities.HibernatUtil;
 import com.mycompany.ontap1.repositories.AccountRepository;
 import java.util.ArrayList;
@@ -66,6 +67,27 @@ public class AccountRepositoryImpl implements AccountRepository{
         } catch (Exception e) {
         }
 
+        return false;
+    }
+
+    @Override
+    public ArrayList<SavingAccount> findAllSavingAccount() {
+        Session session = HibernatUtil.getFACTORY().openSession();
+        ArrayList<SavingAccount> list = (ArrayList<SavingAccount>) session.createCriteria(SavingAccount.class).list();
+        return list;
+    }
+
+    @Override
+    public boolean add(SavingAccount savingAccount) {
+        Transaction transaction = null;
+        try (Session session = HibernatUtil.getFACTORY().openSession()) {
+            transaction = session.beginTransaction();
+            session.save(savingAccount);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

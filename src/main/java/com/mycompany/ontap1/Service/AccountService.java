@@ -5,6 +5,7 @@
 package com.mycompany.ontap1.Service;
 
 import com.mycompany.ontap1.Model.Account;
+import com.mycompany.ontap1.Model.SavingAccount;
 import java.util.ArrayList;
 
 /**
@@ -19,4 +20,8 @@ public interface AccountService {
     public boolean update(int id, Account account);
 
     public boolean delete(int id);
+        
+    public ArrayList<SavingAccount> findAllSavingAccount();
+    
+    public boolean addSaving(SavingAccount savingAccount);
 }

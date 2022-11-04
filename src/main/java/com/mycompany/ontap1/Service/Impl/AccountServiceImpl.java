@@ -5,6 +5,7 @@
 package com.mycompany.ontap1.Service.Impl;
 
 import com.mycompany.ontap1.Model.Account;
+import com.mycompany.ontap1.Model.SavingAccount;
 import com.mycompany.ontap1.Service.AccountService;
 import com.mycompany.ontap1.repositories.AccountRepository;
 import com.mycompany.ontap1.repositories.Impl.AccountRepositoryImpl;
@@ -36,6 +37,16 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public boolean delete(int id) {
         return accountRepository.delete(id);
+    }
+
+    @Override
+    public ArrayList<SavingAccount> findAllSavingAccount() {
+        return accountRepository.findAllSavingAccount();
+    }
+
+    @Override
+    public boolean addSaving(SavingAccount savingAccount) {
+        return accountRepository.add(savingAccount);
     }
 
 }

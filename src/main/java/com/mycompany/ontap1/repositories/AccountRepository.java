@@ -5,6 +5,7 @@
 package com.mycompany.ontap1.repositories;
 
 import com.mycompany.ontap1.Model.Account;
+import com.mycompany.ontap1.Model.SavingAccount;
 import java.util.ArrayList;
 
 /**
@@ -20,4 +21,8 @@ public interface AccountRepository {
     public boolean update(int id, Account account);
 
     public boolean delete(int id);
+    
+    public ArrayList<SavingAccount> findAllSavingAccount();
+    
+    public boolean add(SavingAccount savingAccount);
 }
